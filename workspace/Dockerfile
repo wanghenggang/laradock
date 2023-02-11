@@ -576,7 +576,7 @@ RUN set -eux; \
     if [ ${INSTALL_XLSWRITER} = true ]; then \
       # Install Php xlswriter Extension
       if [ $(php -r "echo PHP_MAJOR_VERSION;") != "5" ]; then \
-        echo '' | pecl -q install xlswriter && \
+        echo '' | pecl -q install https://pecl.php.net/get/xlswriter-1.3.7.tgz && \
         echo "extension=xlswriter.so" >> /etc/php/${LARADOCK_PHP_VERSION}/mods-available/xlswriter.ini && \
         ln -s /etc/php/${LARADOCK_PHP_VERSION}/mods-available/xlswriter.ini /etc/php/${LARADOCK_PHP_VERSION}/cli/conf.d/20-xlswriter.ini && \
         php -m | grep -q 'xlswriter'; \

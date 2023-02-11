@@ -503,7 +503,7 @@ RUN set -eux; \
     if [ ${INSTALL_XLSWRITER} = true ]; then \
       # Install Php xlswriter Extension \
       if [ $(php -r "echo PHP_MAJOR_VERSION;") != "5" ]; then \
-          pecl install xlswriter  &&\
+          pecl install https://pecl.php.net/get/xlswriter-1.3.7.tgz  &&\
           docker-php-ext-enable xlswriter &&\
           php -m | grep -q 'xlswriter'; \
       else \

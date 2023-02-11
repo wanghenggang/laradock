@@ -1,5 +1,5 @@
-ARG GEARMAN_VERSION=latest
-FROM artefactual/gearmand:${GEARMAN_VERSION}
+FROM golang:latest
+RUN mkdir -p /var/www
+WORKDIR /var/www
 
-LABEL maintainer="Stefan Neuhaus <https://www.github.com/stefnats>"
-
+EXPOSE 8088

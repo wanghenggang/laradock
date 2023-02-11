@@ -56,8 +56,19 @@ volumes:
     driver: ${VOLUMES_DRIVER}
 
 services:
+    go:
+      image: golang:latest
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+      ports:
+        - "8088:8088"
+      networks:
+        - backend
+      stdin_open: true
+      tty: true
 
-### Workspace Utilities ##################################
+
+  ### Workspace Utilities ##################################
     workspace:
       build:
         context: ./workspace
